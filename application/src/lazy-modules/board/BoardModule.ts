@@ -5,7 +5,10 @@ type Board = {
 export function getBoard(): Promise<Board> {
     return import(
         /* webpackChunkName: "board" */
-        './BoardImpl')
+        './BoardImpl').then((board) => {
+			board.init()
+			return board
+		})
 }
 
 export default getBoard;

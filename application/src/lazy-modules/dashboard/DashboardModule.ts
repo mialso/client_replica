@@ -6,7 +6,10 @@ type Dashboard = {
 export function getDashboard(): Promise<Dashboard> {
     return import(
         /* webpackChunkName: "dashboard" */
-        './DashboardImpl')
+        './DashboardImpl').then((dashboard) => {
+			dashboard.init()
+			return dashboard
+		})
 }
 
 export default getDashboard;

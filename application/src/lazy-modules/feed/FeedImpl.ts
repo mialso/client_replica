@@ -1,12 +1,12 @@
-import { getUserName } from 'general/services/UserService';
-import { mentionMe } from 'application/dashboard/services/MentionService';
+import UserService from 'general/services/UserService';
+import MentionService from 'application/dashboard/services/MentionService';
 
 export function getFeedButton() {
   const element = document.createElement('button');
 
-  const userName = getUserName();
+  const userName = UserService().getUserName();
   element.innerHTML = `feed button: ${userName}`;
-  element.onclick = mentionMe;
+  element.onclick = MentionService().mentionMe;
 
   return element;
 }
