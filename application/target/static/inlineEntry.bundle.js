@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"board":"board","feed":"feed"}[chunkId]||chunkId) + ".chunk.js"
+/******/ 		return __webpack_require__.p + "" + ({"board":"board","dashboard":"dashboard","feed":"feed"}[chunkId]||chunkId) + ".chunk.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -209,7 +209,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazy-modules/board/BoardModule */ \"./application/src/lazy-modules/board/BoardModule.ts\");\n\n/*\nDashboardModule().then((dashboardModule) => {\n    const component = dashboardModule.getComponent();\n    document.body.appendChild(component);\n})\n*/\nObject(lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_0__[\"default\"])().then(function (board) {\n    var component = board.getComponent();\n    document.body.appendChild(component);\n});\n\n\n//# sourceURL=webpack:///./application/src/entries/inline.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy_modules_dashboard_DashboardModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazy-modules/dashboard/DashboardModule */ \"./application/src/lazy-modules/dashboard/DashboardModule.ts\");\n/* harmony import */ var lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lazy-modules/board/BoardModule */ \"./application/src/lazy-modules/board/BoardModule.ts\");\n\n\nObject(lazy_modules_dashboard_DashboardModule__WEBPACK_IMPORTED_MODULE_0__[\"default\"])().then(function (dashboardModule) {\n    var component = dashboardModule.getComponent();\n    document.body.appendChild(component);\n});\nObject(lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_1__[\"default\"])().then(function (board) {\n    var component = board.getComponent();\n    document.body.appendChild(component);\n});\n\n\n//# sourceURL=webpack:///./application/src/entries/inline.ts?");
 
 /***/ }),
 
@@ -222,6 +222,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getBoard\", function() { return getBoard; });\nfunction getBoard() {\n    return __webpack_require__.e(/*! import() | board */ \"board\").then(__webpack_require__.bind(null, /*! ./BoardImpl */ \"./application/src/lazy-modules/board/BoardImpl.ts\")).then(function (board) {\n        board.init();\n        return board;\n    });\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getBoard);\n\n\n//# sourceURL=webpack:///./application/src/lazy-modules/board/BoardModule.ts?");
+
+/***/ }),
+
+/***/ "./application/src/lazy-modules/dashboard/DashboardModule.ts":
+/*!*******************************************************************!*\
+  !*** ./application/src/lazy-modules/dashboard/DashboardModule.ts ***!
+  \*******************************************************************/
+/*! exports provided: getDashboard, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getDashboard\", function() { return getDashboard; });\nfunction getDashboard(appServices) {\n    if (appServices.length === 0) {\n        return Promise.reject(new Error('Dashboard: wrong dependencies'));\n    }\n    return __webpack_require__.e(/*! import() | dashboard */ \"dashboard\").then(__webpack_require__.bind(null, /*! ./DashboardImpl */ \"./application/src/lazy-modules/dashboard/DashboardImpl.ts\")).then(function (dashboard) {\n        dashboard.init();\n        return dashboard;\n    });\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getDashboard);\n\n\n//# sourceURL=webpack:///./application/src/lazy-modules/dashboard/DashboardModule.ts?");
 
 /***/ })
 

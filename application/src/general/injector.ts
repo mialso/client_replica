@@ -24,7 +24,8 @@ export function get<T>(dependencyName: Services): T {
 
 export function map(dependencyName: Services, instance: any): Services {
 	if (dependencies.has(dependencyName)) {
-		throw new Error(`Duplicate dependency: ${dependencyName}`)
+		// throw new Error(`Duplicate dependency: ${dependencyName}`)
+		return dependencyName
 	}
 	dependencies.set(dependencyName, instance)
 	return dependencyName

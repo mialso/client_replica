@@ -24,7 +24,7 @@ type FeedDependencies = {
 }
 
 export function getFeedModule<T extends FeedServices>(x: T): Promise<FeedModule> {
-	if (!x[USER_SERVICE_KEY]) {
+	if (x[0] !== USER_SERVICE_KEY) {
 		return Promise.reject(new Error('Feed: wrong dependences')) 
 	}
     return import(

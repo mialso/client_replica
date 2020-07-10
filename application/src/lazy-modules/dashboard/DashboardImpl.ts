@@ -1,4 +1,4 @@
-import {dashServicesMap, dashServicesArr, initDashboardServices} from 'lazy-modules/dashboard/DasboardInjector'
+import {dashServicesMap, dashServicesArr, initDashboardServices} from 'lazy-modules/dashboard/DashboardInjector'
 import Feed from 'lazy-modules/feed/FeedModule'
 
 export function init() {
