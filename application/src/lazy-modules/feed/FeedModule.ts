@@ -2,7 +2,13 @@ type FeedModule = {
     getFeedButton(): HTMLButtonElement
 }
 
-export function getFeedModule(): Promise<FeedModule> {
+type FeedDependencies = {
+    userService: {
+        getUserName(): string,
+    }
+}
+
+export function getFeedModule<T extends FeedDependencies>(x: T): Promise<FeedModule> {
     return import(
         /* webpackChunkName: "feed" */
         './FeedImpl')
