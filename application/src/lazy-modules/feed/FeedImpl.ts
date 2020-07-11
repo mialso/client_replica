@@ -1,4 +1,4 @@
-import UserService from 'general/services/UserService';
+import UserService from 'general/services/user';
 import MentionService from 'application/dashboard/services/MentionService';
 
 export function getFeedButton() {

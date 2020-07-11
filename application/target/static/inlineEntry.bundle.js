@@ -201,6 +201,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./application/src/application/commons/AppRequiredServices.ts":
+/*!********************************************************************!*\
+  !*** ./application/src/application/commons/AppRequiredServices.ts ***!
+  \********************************************************************/
+/*! exports provided: initRequiredServices */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initRequiredServices\", function() { return initRequiredServices; });\n/* harmony import */ var general_injector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! general/injector */ \"./application/src/general/injector.ts\");\n/* harmony import */ var general_services_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! general/services/user */ \"./application/src/general/services/user/index.ts\");\n/* harmony import */ var general_services_user_UserServiceImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! general/services/user/UserServiceImpl */ \"./application/src/general/services/user/UserServiceImpl.ts\");\n\n\n\nvar appServices = [general_services_user__WEBPACK_IMPORTED_MODULE_1__[\"USER_SERVICE_KEY\"]];\nfunction initRequiredServices() {\n    Object(general_injector__WEBPACK_IMPORTED_MODULE_0__[\"map\"])(general_services_user__WEBPACK_IMPORTED_MODULE_1__[\"USER_SERVICE_KEY\"], new general_services_user_UserServiceImpl__WEBPACK_IMPORTED_MODULE_2__[\"UserService\"]());\n    return appServices;\n}\n\n\n//# sourceURL=webpack:///./application/src/application/commons/AppRequiredServices.ts?");
+
+/***/ }),
+
 /***/ "./application/src/entries/inline.ts":
 /*!*******************************************!*\
   !*** ./application/src/entries/inline.ts ***!
@@ -209,7 +221,43 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy_modules_dashboard_DashboardModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazy-modules/dashboard/DashboardModule */ \"./application/src/lazy-modules/dashboard/DashboardModule.ts\");\n/* harmony import */ var lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lazy-modules/board/BoardModule */ \"./application/src/lazy-modules/board/BoardModule.ts\");\n\n\nObject(lazy_modules_dashboard_DashboardModule__WEBPACK_IMPORTED_MODULE_0__[\"default\"])().then(function (dashboardModule) {\n    var component = dashboardModule.getComponent();\n    document.body.appendChild(component);\n});\nObject(lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_1__[\"default\"])().then(function (board) {\n    var component = board.getComponent();\n    document.body.appendChild(component);\n});\n\n\n//# sourceURL=webpack:///./application/src/entries/inline.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy_modules_dashboard_DashboardModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazy-modules/dashboard/DashboardModule */ \"./application/src/lazy-modules/dashboard/DashboardModule.ts\");\n/* harmony import */ var lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lazy-modules/board/BoardModule */ \"./application/src/lazy-modules/board/BoardModule.ts\");\n/* harmony import */ var application_commons_AppRequiredServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! application/commons/AppRequiredServices */ \"./application/src/application/commons/AppRequiredServices.ts\");\n\n\n\nvar appServices = Object(application_commons_AppRequiredServices__WEBPACK_IMPORTED_MODULE_2__[\"initRequiredServices\"])();\nObject(lazy_modules_dashboard_DashboardModule__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(appServices).then(function (dashboardModule) {\n    var component = dashboardModule.getComponent();\n    document.body.appendChild(component);\n});\nObject(lazy_modules_board_BoardModule__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(appServices).then(function (board) {\n    var component = board.getComponent();\n    document.body.appendChild(component);\n});\n\n\n//# sourceURL=webpack:///./application/src/entries/inline.ts?");
+
+/***/ }),
+
+/***/ "./application/src/general/injector.ts":
+/*!*********************************************!*\
+  !*** ./application/src/general/injector.ts ***!
+  \*********************************************/
+/*! exports provided: getInjectionPoint, has, get, map, mapIfNeed, remove, clearAll, servicesArray, servicesObject, servicesMap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getInjectionPoint\", function() { return getInjectionPoint; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"has\", function() { return has; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"get\", function() { return get; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"map\", function() { return map; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"mapIfNeed\", function() { return mapIfNeed; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"remove\", function() { return remove; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"clearAll\", function() { return clearAll; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"servicesArray\", function() { return servicesArray; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"servicesObject\", function() { return servicesObject; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"servicesMap\", function() { return servicesMap; });\nvar dependencies = new Map();\nfunction getInjectionPoint(dependencyName) {\n    return function () { return get(dependencyName); };\n}\nfunction has(dependencyName) {\n    return dependencies.has(dependencyName);\n}\nfunction get(dependencyName) {\n    var dependency = dependencies.get(dependencyName);\n    if (!dependency) {\n        throw new Error(\"Missing dependency: \" + dependencyName);\n    }\n    return dependency;\n}\nfunction map(dependencyName, instance) {\n    if (dependencies.has(dependencyName)) {\n        // throw new Error(`Duplicate dependency: ${dependencyName}`)\n        return dependencyName;\n    }\n    dependencies.set(dependencyName, instance);\n    return dependencyName;\n}\nfunction mapIfNeed(dependencyName, instance) {\n    if (!dependencies.has(dependencyName)) {\n        dependencies.set(dependencyName, instance);\n    }\n}\nfunction remove(dependencyName) {\n    if (dependencies.has(dependencyName)) {\n        dependencies.delete(dependencyName);\n    }\n}\nfunction clearAll() {\n    dependencies.clear();\n}\nvar servicesArray = function (arr) { return arr; };\nvar servicesObject = function (arr) { return arr.reduce(function (acc, item) { return acc.set(item[0], item[1]); }, new Map()); };\nvar servicesMap = function (arr) { return arr.reduce(function (acc, item) {\n    acc[item] = true;\n    return acc;\n}, {}); };\n// export const servicesMap = <S extends string>(arr: S[]) => arr.reduce((acc, item) => acc.set(item, true), new Map<S,true>());\n\n\n//# sourceURL=webpack:///./application/src/general/injector.ts?");
+
+/***/ }),
+
+/***/ "./application/src/general/services/user/UserServiceImpl.ts":
+/*!******************************************************************!*\
+  !*** ./application/src/general/services/user/UserServiceImpl.ts ***!
+  \******************************************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"UserService\", function() { return UserService; });\nvar UserService = /** @class */ (function () {\n    function UserService() {\n    }\n    UserService.prototype.getUserName = function () {\n        return 'User One';\n    };\n    return UserService;\n}());\n\n\n\n//# sourceURL=webpack:///./application/src/general/services/user/UserServiceImpl.ts?");
+
+/***/ }),
+
+/***/ "./application/src/general/services/user/index.ts":
+/*!********************************************************!*\
+  !*** ./application/src/general/services/user/index.ts ***!
+  \********************************************************/
+/*! exports provided: USER_SERVICE_KEY, getInjectionPoint, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"USER_SERVICE_KEY\", function() { return USER_SERVICE_KEY; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getInjectionPoint\", function() { return getInjectionPoint; });\n/* harmony import */ var general_injector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! general/injector */ \"./application/src/general/injector.ts\");\n\nvar USER_SERVICE_KEY = 'UserService';\nfunction getInjectionPoint() {\n    return general_injector__WEBPACK_IMPORTED_MODULE_0__[\"getInjectionPoint\"](USER_SERVICE_KEY);\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getInjectionPoint());\n\n\n//# sourceURL=webpack:///./application/src/general/services/user/index.ts?");
 
 /***/ }),
 
@@ -221,7 +269,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getBoard\", function() { return getBoard; });\nfunction getBoard() {\n    return __webpack_require__.e(/*! import() | board */ \"board\").then(__webpack_require__.bind(null, /*! ./BoardImpl */ \"./application/src/lazy-modules/board/BoardImpl.ts\")).then(function (board) {\n        board.init();\n        return board;\n    });\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getBoard);\n\n\n//# sourceURL=webpack:///./application/src/lazy-modules/board/BoardModule.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getBoard\", function() { return getBoard; });\nfunction getBoard(_) {\n    return __webpack_require__.e(/*! import() | board */ \"board\").then(__webpack_require__.bind(null, /*! ./BoardImpl */ \"./application/src/lazy-modules/board/BoardImpl.ts\")).then(function (board) {\n        board.init();\n        return board;\n    });\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getBoard);\n\n\n//# sourceURL=webpack:///./application/src/lazy-modules/board/BoardModule.ts?");
 
 /***/ }),
 
@@ -233,7 +281,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getDashboard\", function() { return getDashboard; });\nfunction getDashboard(appServices) {\n    if (appServices.length === 0) {\n        return Promise.reject(new Error('Dashboard: wrong dependencies'));\n    }\n    return __webpack_require__.e(/*! import() | dashboard */ \"dashboard\").then(__webpack_require__.bind(null, /*! ./DashboardImpl */ \"./application/src/lazy-modules/dashboard/DashboardImpl.ts\")).then(function (dashboard) {\n        dashboard.init();\n        return dashboard;\n    });\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getDashboard);\n\n\n//# sourceURL=webpack:///./application/src/lazy-modules/dashboard/DashboardModule.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getDashboard\", function() { return getDashboard; });\nfunction getDashboard(_) {\n    return __webpack_require__.e(/*! import() | dashboard */ \"dashboard\").then(__webpack_require__.bind(null, /*! ./DashboardImpl */ \"./application/src/lazy-modules/dashboard/DashboardImpl.ts\")).then(function (dashboard) {\n        dashboard.init();\n        return dashboard;\n    });\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (getDashboard);\n\n\n//# sourceURL=webpack:///./application/src/lazy-modules/dashboard/DashboardModule.ts?");
 
 /***/ })
 
