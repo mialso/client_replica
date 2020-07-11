@@ -1,4 +1,4 @@
-import {IUserService} from './UserService'
+import {IUserService} from 'general/services/user'
 
 export class UserService implements IUserService {
 	getUserName() {

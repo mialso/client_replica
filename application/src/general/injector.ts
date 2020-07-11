@@ -4,10 +4,10 @@ export interface InjectionPoint<T> {
 	(): T
 }
 
-let dependencies = new Map<string, any>()
+let dependencies = new Map<string, unknown>()
 
-export function getInjectionPoint(dependencyName: Services): any {
-	return () => get<any>(dependencyName)
+export function getInjectionPoint<T>(dependencyName: Services): InjectionPoint<T> {
+	return () => get<T>(dependencyName)
 }
 
 export function has(dependencyName: Services): boolean {
@@ -19,7 +19,7 @@ export function get<T>(dependencyName: Services): T {
 	if (!dependency) {
 		throw new Error(`Missing dependency: ${dependencyName}`)
 	}
-	return dependency
+	return dependency as T
 }
 
 export function map(dependencyName: Services, instance: any): Services {
