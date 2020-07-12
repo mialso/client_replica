@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "lazy-modules/*": ["../lazy-modules/*"],
+            "general/*": ["../general/*"],
+            "application/*": ["../application/*"]
+        }
+    },
+    "references": [
+        { "path": "../lazy-modules/dashboard/" }
+    ],
+    "include": ["./**/*"]
+}

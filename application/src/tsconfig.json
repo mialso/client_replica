@@ -5,6 +5,5 @@
         "moduleResolution": "node",
         "lib": ["es6", "dom", "dom.iterable", "es2018.Promise"],
         "target": "es5"
-    },
-    "include": ["./**/*"]
+    }
 }

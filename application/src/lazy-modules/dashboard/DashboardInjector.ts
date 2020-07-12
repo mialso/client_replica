@@ -1,6 +1,6 @@
 import {map as injectorMap} from 'general/injector'
-import {USER_SERVICE_KEY} from 'general/services/user'
-import {ACCOUNT_SERVICE_KEY} from 'general/services/account'
+import {USER_SERVICE_KEY} from 'services/user'
+import {ACCOUNT_SERVICE_KEY} from 'services/account'
 import {MentionService} from 'application/dashboard/services/MentionServiceImpl'
 import {MENTION_SERVICE_KEY} from 'application/dashboard/services/MentionService'
 

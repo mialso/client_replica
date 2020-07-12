@@ -1,0 +1,8 @@
+{
+    "extends": "../../tsconfig.modules.json",
+    "references": [
+        { "path": "../../general/services" },
+        { "path": "../../lazy-modules/feed" }
+    ],
+    "include": ["./**/*", "../../application/dashboard/services/**/*"]
+}

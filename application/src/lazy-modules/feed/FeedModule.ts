@@ -1,4 +1,4 @@
-import {USER_SERVICE_KEY} from 'general/services/user'
+import {USER_SERVICE_KEY} from 'services/user'
 import {MENTION_SERVICE_KEY} from 'application/dashboard/services/MentionService'
 
 type FeedModule = {

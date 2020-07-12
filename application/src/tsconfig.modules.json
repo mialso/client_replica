@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "composite": true,
+        "noEmit": false,
+        "emitDeclarationOnly": true,
+        "baseUrl": ".",
+        "declaration": true,
+        "paths": {
+            "services/*": ["./general/services/*", "./application/dashboard/services/*"]
+        }
+    }
+}
+
