@@ -5,7 +5,7 @@ export function getFeedButton() {
   const element = document.createElement('button');
 
   const userName = UserService().getUserName();
-  const userSurname = UserService().getUserSurname();
+  //const userSurname = UserService().getUserSurname();
   element.innerHTML = `feed button: ${userName}`;
   element.onclick = MentionService().mentionMe;
 

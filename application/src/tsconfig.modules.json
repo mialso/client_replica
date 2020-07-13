@@ -6,10 +6,7 @@
         "noEmit": false,
         "emitDeclarationOnly": true,
         "baseUrl": ".",
-        "declaration": true,
-        "paths": {
-            "services/*": ["./general/services/*", "./application/dashboard/services/*"]
-        }
+        "declaration": true
     }
 }
 

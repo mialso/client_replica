@@ -1,7 +1,0 @@
-{
-    "extends": "../../tsconfig.modules.json",
-    "references": [
-        { "path": "../../general/services" }
-    ],
-    "include": ["./**/*"]
-}
