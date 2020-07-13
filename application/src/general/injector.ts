@@ -22,13 +22,13 @@ export function get<T>(dependencyName: Services): T {
 	return dependency as T
 }
 
-export function map(dependencyName: Services, instance: any): Services {
+export function map(dependencyName: Services, instance: any): boolean {
 	if (dependencies.has(dependencyName)) {
 		// throw new Error(`Duplicate dependency: ${dependencyName}`)
-		return dependencyName
+		return true
 	}
 	dependencies.set(dependencyName, instance)
-	return dependencyName
+	return true
 }
 
 export function mapIfNeed(dependencyName: Services, instance: any): void {

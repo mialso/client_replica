@@ -1,8 +1,9 @@
-import {initDashboardServices} from 'lazy-modules/dashboard/DashboardInjector'
+import {initDashboardServices, DashboardRequiredServices, DashboardServices} from 'lazy-modules/dashboard/DashboardInjector'
 import Feed from 'lazy-modules/feed/FeedModule'
 
-export function init() {
-	initDashboardServices()
+let dashboardServices: DashboardServices
+export function init(services: DashboardRequiredServices): void {
+	dashboardServices = initDashboardServices(services)
 }
 
 export function getSmth() {
@@ -13,7 +14,7 @@ export function getComponent() {
   const element = document.createElement('div');
 
   element.innerHTML = 'dashboard component';
-  Feed().then((feedModule) => {
+  Feed(dashboardServices).then((feedModule) => {
       const feedButton = feedModule.getFeedButton();
       element.appendChild(feedButton);
   })

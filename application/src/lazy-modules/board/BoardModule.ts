@@ -1,12 +1,14 @@
+import {BoardRequiredServices} from './BoardInjector'
+
 type Board = {
     getComponent(): HTMLDivElement,
 }
 
-export function getBoard(): Promise<Board> {
+export function getBoard(services: BoardRequiredServices): Promise<Board> {
     return import(
         /* webpackChunkName: "board" */
         './BoardImpl').then((board) => {
-			board.init()
+			board.init(services)
 			return board
 		})
 }

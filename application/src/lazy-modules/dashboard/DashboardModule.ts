@@ -1,13 +1,15 @@
+import {DashboardRequiredServices} from './DashboardInjector'
+
 type Dashboard = {
     getComponent(): HTMLDivElement,
     getSmth(): string,
 }
 
-export function getDashboard(): Promise<Dashboard> {
+export function getDashboard(services: DashboardRequiredServices): Promise<Dashboard> {
     return import(
         /* webpackChunkName: "dashboard" */
         './DashboardImpl').then((dashboard) => {
-			dashboard.init()
+			dashboard.init(services)
 			return dashboard
 		})
 }
