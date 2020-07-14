@@ -8,35 +8,48 @@
 * `npm run typecheck`
 > run typescript and check typings
 
+* `npm run dependency:graph`
+> run "madge" in order to build the dependency graph (svg image)
+
 #### folder structure:
 ```
 application/
 ├── src
 │   ├── application
+│   │   ├── commons
+│   │   │   └── AppRequiredServices.ts
 │   │   └── dashboard
 │   │       └── services
-│   │           └── MentionService.ts
-│   ├── embed
+│   │           ├── MentionService.ts
+│   │           └── MentionServiceImpl.ts
 │   ├── entries
-│   │   └── inline.ts
+│   │   ├── inline.ts
+│   │   └── tsconfig.json
 │   ├── general
+│   │   ├── injector.ts
 │   │   └── services
-│   │       └── UserService.ts
+│   │       ├── account
+│   │       │   ├── AccountServiceImpl.ts
+│   │       │   └── index.ts
+│   │       └── user
+│   │           ├── UserServiceImpl.ts
+│   │           └── index.ts
 │   ├── lazy-modules
 │   │   ├── board
 │   │   │   ├── BoardImpl.ts
-│   │   │   └── BoardModule.ts
+│   │   │   ├── BoardInjector.ts
+│   │   │   ├── BoardModule.ts
+│   │   │   └── tsconfig.json
 │   │   ├── dashboard
 │   │   │   ├── DashboardImpl.ts
-│   │   │   └── DashboardModule.ts
+│   │   │   ├── DashboardInjector.ts
+│   │   │   ├── DashboardModule.ts
+│   │   │   └── tsconfig.json
 │   │   └── feed
 │   │       ├── FeedImpl.ts
 │   │       └── FeedModule.ts
-│   ├── picker
-│   ├── sdk
-│   ├── storybook
-│   ├── tests
-│   └── tsconfig.json
+│   ├── tsconfig.json
+│   └── tsconfig.modules.json
 ├── static
 │   └── index.html
 ├── target
@@ -46,6 +59,5 @@ application/
 │       ├── feed.chunk.js
 │       ├── index.html
 │       └── inlineEntry.bundle.js
-├── typings
 └── webpack.config.js
 ```
