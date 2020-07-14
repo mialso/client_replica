@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "typecheck": "tsc -p application/src/",
+    "typecheck": "tsc --build application/src/entries",
     "build": "webpack --config ./application/webpack.config.js",
 	"dependency:graph": "madge -i graph.svg --webpack-config application/webpack.config.js application/src/entries/inline.ts",
     "dev:server": "http-server application/target/static/ -p 8099",
