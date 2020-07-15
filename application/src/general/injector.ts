@@ -51,8 +51,10 @@ export const servicesArray = <S extends string>(arr: S[]) => arr;
 
 export const servicesObject = <S extends string, T>(arr: [S,T][]) => arr.reduce((acc, item) => acc.set(item[0], item[1]), new Map<S,T>());
 
+/*
 export const servicesMap = (arr: string[]): { [name: string]: true } => arr.reduce((acc, item) => {
 	acc[item] = true;
 	return acc;
 }, {});
+*/
 // export const servicesMap = <S extends string>(arr: S[]) => arr.reduce((acc, item) => acc.set(item, true), new Map<S,true>());

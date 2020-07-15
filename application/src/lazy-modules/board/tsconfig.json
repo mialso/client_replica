@@ -1,8 +1,10 @@
 {
     "extends": "../../tsconfig.modules.json",
+	"references": [
+		{ "path": "../../lazy-modules/feed" }
+	],
     "include": [
 		"./**/*",
-		"../../lazy-modules/feed/**/*",
 		"../../general/services/**/*",
 		"../../general/*"
 	]

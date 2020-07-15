@@ -5,3 +5,7 @@ export class MentionService implements IMentionService {
 		console.info('mentioned');
 	}
 }
+
+export function mentionHelper() {
+	return 'some help'
+}

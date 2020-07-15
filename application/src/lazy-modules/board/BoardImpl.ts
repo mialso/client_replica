@@ -1,4 +1,4 @@
-import {initBoardServices} from './BoardInjector'
+import {initBoardServices} from 'lazy-modules/board/BoardInjector'
 import Feed from 'lazy-modules/feed/FeedModule'
 
 export function init() {

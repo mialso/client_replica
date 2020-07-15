@@ -1,0 +1,9 @@
+{
+	"extends": "../../tsconfig.modules.json",
+	"include": [
+		"../../general/*",
+		"../../general/services/**/*",
+		"../../application/dashboard/services/**/*",
+		"./**/*"
+	]
+}
