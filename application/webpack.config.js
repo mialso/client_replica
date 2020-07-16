@@ -17,10 +17,15 @@ module.exports = {
             filename: 'index.html',
         }),
     ],
+    optimization: {
+	    splitChunks: {
+	        chunks: 'async',
+        },
+    },
     module: {
         rules: [
             {
-                test: /\.ts$/,
+                test: /\.ts/,
                 loader: 'ts-loader',
                 options: {
                     transpileOnly: true,

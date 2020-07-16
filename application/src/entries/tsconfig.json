@@ -9,8 +9,12 @@
         }
     },
     "references": [
-        { "path": "../lazy-modules/dashboard/" },
-        { "path": "../lazy-modules/board/" }
+        //{ "path": "../lazy-modules/dashboard/" },
+        //{ "path": "../lazy-modules/board/" }
     ],
-    "include": ["./**/*"]
+    "include": [
+        "./**/*",
+        "../lazy-modules/dashboard/",
+        "../lazy-modules/board/"
+    ]
 }

@@ -1,9 +1,21 @@
 {
-    "extends": "../../tsconfig.modules.json",
-    "include": [
+    "extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"general/*": ["../../general/*"],
+			"application/*": ["../../application/*"],
+			"lazy-modules/dashboard/*": ["./*"],
+			"lazy-modules/*": ["../out/*"]
+		}
+	},
+	"exclude": [
+		"../feed/*"
+	],
+	"include": [
 		"./**/*",
 		"../../application/dashboard/services/*",
-		"../../lazy-modules/feed/**/*",
+		"../../lazy-modules/out/*",
 		"../../general/services/**/*",
 		"../../general/*"
 	]

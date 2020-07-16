@@ -1,12 +1,17 @@
 {
-    "extends": "../../tsconfig.modules.json",
-	"references": [
-		{ "path": "../../lazy-modules/feed" }
-	],
-    "include": [
+    "extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"general/*": ["../../general/*"],
+			"lazy-modules/board/*": ["./*"],
+			"lazy-modules/*": ["../out/*"]
+		}
+	},
+	"include": [
 		"./**/*",
+		"../out/*",
 		"../../general/services/**/*",
 		"../../general/*"
 	]
 }
-

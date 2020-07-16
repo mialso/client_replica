@@ -1,9 +1,12 @@
 {
-	"extends": "../../tsconfig.modules.json",
-	"include": [
-		"../../general/*",
-		"../../general/services/**/*",
-		"../../application/dashboard/services/**/*",
-		"./**/*"
-	]
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": [
+    "./**/*",
+    "../../application/dashboard/services/*",
+    "../../general/services/**/*",
+    "../../general/*"
+  ]
 }
