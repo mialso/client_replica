@@ -1,7 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.modules.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "general/*": ["../../general/*"],
+      "application/*": ["../../application/*"],
+      "lazy-modules/feed/*": ["./*"]
+    }
   },
   "include": [
     "./**/*",

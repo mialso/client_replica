@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.json",
+    "extends": "./tsconfig.common.json",
     "compilerOptions": {
 		"strict": true,
         "rootDir": ".",
@@ -7,6 +7,7 @@
         "noEmit": false,
         "emitDeclarationOnly": true,
         "baseUrl": ".",
+        "declarationDir": "../types",
         "declaration": true
     }
 }

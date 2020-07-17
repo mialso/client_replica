@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["feed-FeedImpl_module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["feed"],{
 
 /***/ "./application/src/application/dashboard/services/MentionService.ts":
 /*!**************************************************************************!*\

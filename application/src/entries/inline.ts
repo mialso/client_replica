@@ -1,5 +1,5 @@
-import DashboardModule from 'lazy-modules/dashboard/DashboardModule';
-import BoardModule from 'lazy-modules/board/BoardModule';
+import DashboardModule from 'lazy-modules/out/DashboardModule';
+import BoardModule from 'lazy-modules/out/BoardModule';
 import {initRequiredServices} from 'application/commons/AppRequiredServices';
 
 initRequiredServices()

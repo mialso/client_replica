@@ -1,20 +1,22 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../tsconfig.modules.json",
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
             "lazy-modules/*": ["../lazy-modules/*"],
             "general/*": ["../general/*"],
-            "application/*": ["../application/*"]
+            "application/commons/*": ["../application/commons/*"]
         }
     },
     "references": [
-        //{ "path": "../lazy-modules/dashboard/" },
-        //{ "path": "../lazy-modules/board/" }
+        { "path":  "../application" },
+        { "path":  "../lazy-modules/dashboard/" },
+        { "path":  "../lazy-modules/board/" }
     ],
     "include": [
         "./**/*",
-        "../lazy-modules/dashboard/",
-        "../lazy-modules/board/"
+        "../application/commons/*",
+        "../general/*",
+        "../lazy-modules/out/*"
     ]
 }
